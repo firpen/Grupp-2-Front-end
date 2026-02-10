@@ -134,6 +134,7 @@ body {
     border-radius: 8px;
     font-size: 19px;
     /* color: #02253d; */
+    /*text color left button*/
     color: white;
     text-decoration: none;
     font-weight: 600;
@@ -166,7 +167,9 @@ body {
     left: 0;
     width: 0;
     height: 100%;
-    background: #02253d;
+    background: black;
+    /*button hover color left button*/
+    /* background: white; */
     z-index: -1;
     transition: .5s
 }
