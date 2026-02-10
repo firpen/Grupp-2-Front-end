@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style/register.css">
-    <script src="/scripts/register.css"></script>
+    <link rel="stylesheet" href="/style/homepage.css">
+    <script src="/scripts/register.js"></script>
 </head>
+
 <body>
-    <form id="registerForm" method="POST">
-        <label>Username:</label>
-        <input type="text" name="username">
-        <label>Password:</label>
-        <input type="password" name="password">
-        <button type="submit">Create</button>
-    </form>
+
+    <header class="header">
+        <a href="/pages/index.html" class="logo">Home.</a>
+
+        <nav class="navbar">
+            <a href="/pages/index.html" class="active">Home</a>
+            <a href="/pages/cars.html">Cars</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="home">
+            <div class="home-content">
+                <p>Register to create an account</p>
+                <form id="registerForm" method="POST">
+                    <label>Username:</label>
+                    <input type="text" name="username">
+                    <label>Password:</label>
+                    <input type="password" name="password">
+                    <button type="submit">Create</button>
+                </form>
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>
