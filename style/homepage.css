@@ -1,7 +1,3 @@
-body {
-    background-color: rgb(14, 125, 223);
-}
-
 h1 {
     color: white;
     text-align: center;
@@ -28,8 +24,25 @@ p {
 
 body {
     background-color: #02253d;
+    background-image: url('/style/bilhall.png');
+    background-size: cover;
+    background-position: center;
     color: #ffffff;
 }
+
+/* .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    padding: 20px 10%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+} */
+
 
 .header {
     position: fixed;
@@ -37,7 +50,8 @@ body {
     width: 100%;
     left: 0;
     padding: 20px 10%;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,7 +90,10 @@ body {
 
 .home-content {
     max-width: 600px;
-
+    background-color: rgba(0, 0, 0, 0.55);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
 }
 
 .home-content h1 {
@@ -116,7 +133,8 @@ body {
     border: 2px solid #c55f0b;
     border-radius: 8px;
     font-size: 19px;
-    color: #02253d;
+    /* color: #02253d; */
+    color: white;
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
