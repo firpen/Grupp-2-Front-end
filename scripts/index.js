@@ -90,4 +90,33 @@ function deleteButton(carId) {
     return deleteBtn;
 }
 
+function sortButton() {
+    let sortBtn = document.createElement("button");
+    sortBtn.innerText = "Sortera bilar på värde";
+    sortBtn.classList.add("sort-btn");
+    sortBtn.addEventListener("click", () => {
+        sortCars();
+    });
+
+    return sortBtn;
+}
+
+function sortCars() {
+    fetch("http://localhost:8080/api/cars/sort", {
+        headers: {
+            "X-API-KEY": apiKey
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Sorterade bilar:", data);
+        renderCars(data);
+    })
+    .catch(err => console.error("Error sorting cars:", err));
+}
+
+// Lägg sortknapp i sortContainer
+sortContainer.appendChild(sortButton());
+
+// Hämta alla bilar vid sidladdning
 getCars();
