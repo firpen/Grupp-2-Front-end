@@ -32,8 +32,35 @@ function getCars() {
     })
     .then(response => response.json())
     .then(data => {
+<<<<<<< HEAD
+        console.log(data);
+
+        carsContainer.innerHTML = ""; // rensa
+
+        data.forEach(car => {
+            let div = document.createElement("div");
+            let anchor = document.createElement("a");
+            
+            anchor.innerText = "Update Car"
+            anchor.href = `/pages/carDetails.html?id=${car.id}`
+
+            div.innerHTML = `
+                <h2>${car.carBrand} ${car.carModel}</h2>
+                <img src="${car.img}" width="200"/>
+                <p><strong>Year:</strong> ${car.year}</p>
+                <p><strong>Value:</strong> ${car.value}</p>
+                <p><strong>Brand:</strong> ${car.carBrand}</p>
+                <p><strong>Model:</strong> ${car.carModel}</p>
+            `;
+
+            div.appendChild(updateCar);
+            div.appendChild(deleteButton(car.id)); // lägg deleteknapp på varje car
+            carsContainer.appendChild(div);
+        });
+=======
         console.log("Alla bilar:", data);
         renderCars(data);
+>>>>>>> c1329542941f545196ee965aa98b360b9b224af6
     })
     .catch(error => console.error("Error fetching cars:", error));
 }
@@ -63,6 +90,8 @@ function deleteButton(carId) {
     return deleteBtn;
 }
 
+<<<<<<< HEAD
+=======
 function sortButton() {
     let sortBtn = document.createElement("button");
     sortBtn.innerText = "Sortera bilar på värde";
@@ -92,4 +121,5 @@ function sortCars() {
 sortContainer.appendChild(sortButton());
 
 // Hämta alla bilar vid sidladdning
+>>>>>>> c1329542941f545196ee965aa98b360b9b224af6
 getCars();
