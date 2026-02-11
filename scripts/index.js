@@ -30,9 +30,12 @@ function getCars() {
             "X-API-KEY": apiKey
         }
     })
-    .then(response => response.json())
-    .then(data => {
-<<<<<<< HEAD
+        .then(response => response.json())
+        .then(data => {
+            console.log("Alla bilar:", data);
+            renderCars(data);
+        })
+        .catch(error => console.error("Error fetching cars:", error));
         console.log(data);
 
         carsContainer.innerHTML = ""; // rensa
@@ -57,12 +60,9 @@ function getCars() {
             div.appendChild(deleteButton(car.id)); // lägg deleteknapp på varje car
             carsContainer.appendChild(div);
         });
-=======
-        console.log("Alla bilar:", data);
-        renderCars(data);
->>>>>>> c1329542941f545196ee965aa98b360b9b224af6
     })
     .catch(error => console.error("Error fetching cars:", error));
+ main
 }
 
 function deleteCar(carId) {
@@ -72,10 +72,10 @@ function deleteCar(carId) {
             "X-API-KEY": apiKey
         }
     })
-    .then(response => {
-        getCars(); // uppdatera listan efter delete
-    })
-    .catch(err => console.error("Error deleting car:", err));
+        .then(response => {
+            getCars(); // uppdatera listan efter delete
+        })
+        .catch(err => console.error("Error deleting car:", err));
 }
 
 function deleteButton(carId) {
@@ -90,36 +90,4 @@ function deleteButton(carId) {
     return deleteBtn;
 }
 
-<<<<<<< HEAD
-=======
-function sortButton() {
-    let sortBtn = document.createElement("button");
-    sortBtn.innerText = "Sortera bilar på värde";
-
-    sortBtn.addEventListener("click", () => {
-        sortCars();
-    });
-
-    return sortBtn;
-}
-
-function sortCars() {
-    fetch("http://localhost:8080/api/cars/sort", {
-        headers: {
-            "X-API-KEY": apiKey
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Sorterade bilar:", data);
-        renderCars(data);
-    })
-    .catch(err => console.error("Error sorting cars:", err));
-}
-
-// Lägg sortknapp i sortContainer
-sortContainer.appendChild(sortButton());
-
-// Hämta alla bilar vid sidladdning
->>>>>>> c1329542941f545196ee965aa98b360b9b224af6
 getCars();
