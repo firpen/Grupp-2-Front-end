@@ -8,16 +8,16 @@ function getCars() {
             "X-API-KEY": apiKey
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
 
-        carsContainer.innerHTML = ""; // rensa
+            carsContainer.innerHTML = ""; // rensa
 
-        data.forEach(car => {
-            let div = document.createElement("div");
+            data.forEach(car => {
+                let div = document.createElement("div");
 
-            div.innerHTML = `
+                div.innerHTML = `
                 <h2>${car.carBrand} ${car.carModel}</h2>
                 <img src="${car.img}" width="200"/>
                 <p><strong>Year:</strong> ${car.year}</p>
@@ -26,11 +26,11 @@ function getCars() {
                 <p><strong>Model:</strong> ${car.carModel}</p>
             `;
 
-            div.appendChild(deleteButton(car.id)); // lägg deleteknapp på varje car
-            carsContainer.appendChild(div);
-        });
-    })
-    .catch(error => console.error("Error fetching:", error));
+                div.appendChild(deleteButton(car.id)); // lägg deleteknapp på varje car
+                carsContainer.appendChild(div);
+            });
+        })
+        .catch(error => console.error("Error fetching:", error));
 }
 
 
@@ -41,15 +41,16 @@ function deleteCar(carId) {
             "X-API-KEY": apiKey
         }
     })
-    .then(res => {
-        getCars(); // uppdatera listan efter delete
-    });
+        .then(res => {
+            getCars(); // uppdatera listan efter delete
+        });
 }
 
 
 function deleteButton(carId) {
     let deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Radera bil";
+    deleteBtn.classList.add("delete-btn");
 
     deleteBtn.addEventListener("click", () => {
         deleteCar(carId);
