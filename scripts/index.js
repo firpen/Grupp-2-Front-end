@@ -16,6 +16,10 @@ function getCars() {
 
         data.forEach(car => {
             let div = document.createElement("div");
+            let anchor = document.createElement("a");
+            
+            anchor.innerText = "Update Car"
+            anchor.href = `/pages/carDetails.html?id=${car.id}`
 
             div.innerHTML = `
                 <h2>${car.carBrand} ${car.carModel}</h2>
@@ -26,6 +30,7 @@ function getCars() {
                 <p><strong>Model:</strong> ${car.carModel}</p>
             `;
 
+            div.appendChild(updateCar);
             div.appendChild(deleteButton(car.id)); // lägg deleteknapp på varje car
             carsContainer.appendChild(div);
         });
@@ -57,6 +62,5 @@ function deleteButton(carId) {
 
     return deleteBtn;
 }
-
 
 getCars();
