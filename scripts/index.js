@@ -30,12 +30,12 @@ function getCars() {
             "X-API-KEY": apiKey
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Alla bilar:", data);
-        renderCars(data);
-    })
-    .catch(error => console.error("Error fetching cars:", error));
+        .then(response => response.json())
+        .then(data => {
+            console.log("Alla bilar:", data);
+            renderCars(data);
+        })
+        .catch(error => console.error("Error fetching cars:", error));
 }
 
 function deleteCar(carId) {
@@ -45,10 +45,10 @@ function deleteCar(carId) {
             "X-API-KEY": apiKey
         }
     })
-    .then(response => {
-        getCars(); // uppdatera listan efter delete
-    })
-    .catch(err => console.error("Error deleting car:", err));
+        .then(response => {
+            getCars(); // uppdatera listan efter delete
+        })
+        .catch(err => console.error("Error deleting car:", err));
 }
 
 function deleteButton(carId) {
@@ -66,6 +66,7 @@ function deleteButton(carId) {
 function sortButton() {
     let sortBtn = document.createElement("button");
     sortBtn.innerText = "Sortera bilar på värde";
+    sortBtn.classList.add("sort-btn");
 
     sortBtn.addEventListener("click", () => {
         sortCars();
@@ -80,12 +81,12 @@ function sortCars() {
             "X-API-KEY": apiKey
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Sorterade bilar:", data);
-        renderCars(data);
-    })
-    .catch(err => console.error("Error sorting cars:", err));
+        .then(response => response.json())
+        .then(data => {
+            console.log("Sorterade bilar:", data);
+            renderCars(data);
+        })
+        .catch(err => console.error("Error sorting cars:", err));
 }
 
 // Lägg sortknapp i sortContainer
