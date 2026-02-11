@@ -1,6 +1,5 @@
-var apiKey = "9340c3cf-7a20-48a1-8bc2-f5e7ee6de981"
+var apiKey = "9340c3cf-7a20-48a1-8bc2-f5e7ee6de981";
 var carsContainer = document.getElementById("carsContainer");
-
 
 function getCars() {
     fetch("http://localhost:8080/api/cars", {
@@ -27,10 +26,37 @@ function getCars() {
                 <p><strong>Model:</strong> ${car.carModel}</p>
             `;
 
+            div.appendChild(deleteButton(car.id)); // lägg deleteknapp på varje car
             carsContainer.appendChild(div);
         });
     })
     .catch(error => console.error("Error fetching:", error));
 }
+
+
+function deleteCar(carId) {
+    fetch(`http://localhost:8080/api/cars/${carId}`, {
+        method: "DELETE",
+        headers: {
+            "X-API-KEY": apiKey
+        }
+    })
+    .then(res => {
+        getCars(); // uppdatera listan efter delete
+    });
+}
+
+
+function deleteButton(carId) {
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Radera bil";
+
+    deleteBtn.addEventListener("click", () => {
+        deleteCar(carId);
+    });
+
+    return deleteBtn;
+}
+
 
 getCars();
