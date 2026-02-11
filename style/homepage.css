@@ -213,3 +213,10 @@ section.home {
     box-sizing: border-box;
     align-items: start;
 }
+
+#carsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.55);
+}
