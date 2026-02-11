@@ -54,6 +54,7 @@ function deleteCar(carId) {
 function deleteButton(carId) {
     let deleteBtn = document.createElement("button");
     deleteBtn.innerText = "Radera bil";
+    deleteBtn.classList.add("delete-btn");
 
     deleteBtn.addEventListener("click", () => {
         deleteCar(carId);
