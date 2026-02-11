@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car details</title>
+    <link rel="stylesheet" href="/style/homepage.css">
+    <script src="/scripts/carDetails.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <header class="header">
+            <a href="index.html" class="logo">Home.</a>
+
+            <nav class="navbar">
+                <a href="index.html">Home</a>
+                <a href="menu.html" class="active">Meals</a>
+                <a href="saved.html">Favorites</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="recipeDetails">
+                <div id="carDetails">
+                    <form method="POST" id="updateCarForm">
+                        <label>Trivia:</label>
+                        <input type="text" id="trivia" name="trivia">
+                        <label>Value:</label>
+                        <input type="number" id="value" name="value">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+
+            </section>
+        </main>
+
+</body>
+
+</html>
