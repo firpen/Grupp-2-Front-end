@@ -66,7 +66,7 @@ function deleteButton(carId) {
 function sortButton() {
     let sortBtn = document.createElement("button");
     sortBtn.innerText = "Sortera bilar på värde";
-
+    sortBtn.classList.add("sort-btn");
     sortBtn.addEventListener("click", () => {
         sortCars();
     });
